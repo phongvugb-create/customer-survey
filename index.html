@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Satisfaction Survey</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 30px 16px;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #263445;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            margin-top: 0;
+            color: #17365d;
+            text-align: center;
+            font-size: 28px;
+        }
+
+        .description {
+            text-align: center;
+            color: #68778a;
+            margin-bottom: 28px;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label, legend {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d5dce5;
+            border-radius: 6px;
+            font-size: 15px;
+            background: white;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: 2px solid #c6d9ff;
+            border-color: #2563eb;
+        }
+
+        fieldset {
+            border: 1px solid #d5dce5;
+            border-radius: 6px;
+            padding: 16px;
+            margin: 0 0 20px;
+        }
+
+        fieldset label {
+            font-weight: normal;
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            margin: 12px 0;
+        }
+
+        fieldset input {
+            accent-color: #2563eb;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 110px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        #message {
+            margin-top: 18px;
+            text-align: center;
+            color: #15803d;
+            font-weight: bold;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 23px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <h1>Customer Satisfaction Survey</h1>
+
+        <p class="description">
+            Chúng tôi rất mong nhận được ý kiến của bạn
+            để cải thiện chất lượng dịch vụ.
+        </p>
+
+        <form id="surveyForm">
+            <div class="form-group">
+                <label for="name">Họ và tên *</label>
+                <input type="text" id="name" name="name"
+                       placeholder="Nhập họ và tên" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email"
+                       placeholder="example@email.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Số điện thoại</label>
+                <input type="tel" id="phone" name="phone"
+                       placeholder="Nhập số điện thoại">
+            </div>
+
+            <div class="form-group">
+                <label for="product">Sản phẩm / dịch vụ đã sử dụng *</label>
+                <select id="product" name="product" required>
+                    <option value="">-- Chọn dịch vụ --</option>
+                    <option value="product">Sản phẩm</option>
+                    <option value="consulting">Tư vấn</option>
+                    <option value="support">Hỗ trợ khách hàng</option>
+                    <option value="other">Khác</option>
+                </select>
+            </div>
+
+            <fieldset>
+                <legend>Bạn đánh giá chất lượng dịch vụ thế nào? *</legend>
+
+                <label>
+                    <input type="radio" name="rating"
+                           value="5" required>
+                    Rất hài lòng
+                </label>
+
+                <label>
+                    <input type="radio" name="rating" value="4">
+                    Hài lòng
+                </label>
+
+                <label>
+                    <input type="radio" name="rating" value="3">
+                    Bình thường
+                </label>
+
+                <label>
+                    <input type="radio" name="rating" value="2">
+                    Không hài lòng
+                </label>
+
+                <label>
+                    <input type="radio" name="rating" value="1">
+                    Rất không hài lòng
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Bạn biết đến chúng tôi qua đâu?</legend>
+
+                <label>
+                    <input type="checkbox" name="source"
+                           value="facebook">
+                    Facebook
+                </label>
+
+                <label>
+                    <input type="checkbox" name="source"
+                           value="google">
+                    Google
+                </label>
+
+                <label>
+                    <input type="checkbox" name="source"
+                           value="friend">
+                    Bạn bè giới thiệu
+                </label>
+
+                <label>
+                    <input type="checkbox" name="source"
+                           value="other">
+                    Khác
+                </label>
+            </fieldset>
+
+            <div class="form-group">
+                <label for="feedback">Ý kiến đóng góp của bạn</label>
+                <textarea id="feedback" name="feedback"
+                          placeholder="Hãy chia sẻ ý kiến của bạn..."></textarea>
+            </div>
+
+            <button type="submit">Gửi khảo sát</button>
+
+            <p id="message" role="status"></p>
+        </form>
+    </main>
+
+    <script>
+        const form = document.getElementById("surveyForm");
+        const message = document.getElementById("message");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            data.source = formData.getAll("source");
+
+            console.log("Thông tin khảo sát:", data);
+
+            message.textContent =
+                "Cảm ơn bạn đã hoàn thành khảo sát!";
+
+            form.reset();
+        });
+    </script>
+</body>
+</html>
